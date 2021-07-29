@@ -1,6 +1,6 @@
 {
     "name": "yaalcoop/humhub-auth-client",
-    "description": "une super lib",
+    "description": "la version de worteks, mais avec la gestion du nonce",
     "type": "library",
     "require": {
         "worteks/humhub-auth-oidc": "^0.3.0"

@@ -39,7 +39,7 @@ Example application configuration:
     'clients' => [
       // ...
       'oidc' => [
-        'class' => 'worteks\humhub\authclient\OIDC',
+        'class' => 'yaalcoop\humhub-auth-client\OIDC',
         'domain' => 'https://auth.example.com',
         'clientId' => 'myClientId',
         'clientSecret' => 'myClientSecret',
