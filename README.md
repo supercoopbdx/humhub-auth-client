@@ -16,13 +16,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require worteks/humhub-auth-oidc
+php composer.phar require yaalcoop/humhub-auth-oidc
 ```
 
 or add
 
 ```json
-"worteks/humhub-auth-oidc": "~0.3"
+"yaalcoop/humhub-auth-oidc": "~0.3"
 ```
 
 to the `require` section of your composer.json.
@@ -51,4 +51,4 @@ Example application configuration:
 ]
 ```
 
-Check [yii2auth-oidc](http://github.com/Worteks/yii2auth-oidc) for details on available configuration options.
+Check [yii2auth-oidc](https://github.com/supercoopbdx/humhum-auth-client) for details on available configuration options.
