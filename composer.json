@@ -8,8 +8,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "arthur",
-            "email": "arthur@yaal.coop"
+            "name": "Équipe Yaal Coop",
+            "email": "admin@yaal.coop"
         }
     ],
     "autoload": {
