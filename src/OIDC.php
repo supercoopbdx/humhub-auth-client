@@ -62,7 +62,28 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
         return parent::buildAuthUrl($params);
     }
 
-        /**
+    /**
+     * {@inheritdoc}
+     */
+    public function fetchAccessToken($authCode, array $params = [])
+    {
+        if ($this->tokenUrl === null) {
+            $this->tokenUrl = $this->getConfigParam('token_endpoint');
+        }
+
+        if (!isset($params['nonce']) && $this->getValidateAuthNonce()) {
+            $nonce = $this->getState('authNonce');
+            if (!$nonce) {
+                $nonce = $this->generateAuthNonce();
+                $this->setState('authNonce', $nonce);
+            }
+            $params['nonce'] = $nonce;
+        }
+
+        return parent::fetchAccessToken($authCode, $params);
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function defaultName()
