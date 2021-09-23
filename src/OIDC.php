@@ -48,7 +48,7 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
      */
     public function getSyncAttributes()
     {
-        return ["firstname","lastname"];
+        return ["firstname", "lastname"];
     }
 
     /**
@@ -115,13 +115,5 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
     protected function defaultTitle()
     {
         return $this->defaultTitle;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function beforeApiRequestSend($event)
-    {
-	    return parent::beforeApiRequestSend($event);
     }
 }
