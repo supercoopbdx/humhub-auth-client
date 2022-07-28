@@ -52,56 +52,6 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
     }
 
     /**
-     * @inheritdoc
-     */
-    public function buildAuthUrl(array $params = [])
-    {
-        $nonce = parent::generateAuthNonce();
-        $this->setState('authNonce', $nonce);
-        $params['nonce'] = $nonce;
-        return parent::buildAuthUrl($params);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function fetchAccessToken($authCode, array $params = [])
-    {
-        if ($this->tokenUrl === null) {
-            $this->tokenUrl = $this->getConfigParam('token_endpoint');
-        }
-
-        if (!isset($params['nonce']) && $this->getValidateAuthNonce()) {
-            $nonce = $this->getState('authNonce');
-            if (!$nonce) {
-                $nonce = $this->generateAuthNonce();
-                $this->setState('authNonce', $nonce);
-            }
-            $params['nonce'] = $nonce;
-        }
-
-        return parent::fetchAccessToken($authCode, $params);
-    }
-
-    /**
-     * Validates the claims data received from OpenID provider.
-     * @param array $claims claims data.
-     * @throws HttpException on invalid claims.
-     * @since 2.2.3
-     */
-    protected function validateClaims(array $claims)
-    {
-        if (!isset($claims['iss']) || (strcmp(rtrim($claims['iss'], '/'), rtrim($this->issuerUrl, '/')) !== 0)) {
-            throw new HttpException(400, 'Invalid "iss"');
-        }
-        if (!isset($claims['aud'])
-            || (is_string($claims['aud']) && strcmp($claims['aud'], $this->clientId) !== 0)
-            || !in_array($this->clientId, $claims['aud'])) {
-            throw new HttpException(400, 'Invalid "aud"');
-        }
-    }
-
-    /**
      * {@inheritdoc}
      */
     protected function defaultName()
