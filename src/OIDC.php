@@ -39,7 +39,8 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
         'id' => 'sub',
         'username' => 'sub',
         'firstname' => 'given_name',
-        'lastname' => 'family_name'
+        'lastname' => 'family_name',
+        'email' => 'email',
       ];
     }
 
@@ -48,7 +49,7 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
      */
     public function getSyncAttributes()
     {
-        return ["firstname", "lastname"];
+        return ["firstname", "lastname", "email"];
     }
 
     /**
