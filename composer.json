@@ -1,9 +1,10 @@
 {
     "name": "yaalcoop/humhub-auth-client",
-    "description": "la version de worteks, mais avec la gestion du nonce",
+    "description": "Client OpenIDConnect pour Canaille basé sur yii2-authclient",
     "type": "library",
     "require": {
-        "worteks/humhub-auth-oidc": "^0.3.0"
+        "web-token/jwt-key-mgmt": "^2",
+        "yiisoft/yii2-authclient": "^2.2.14"
     },
     "license": "MIT",
     "authors": [
