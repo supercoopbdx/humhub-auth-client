@@ -19,6 +19,8 @@ class OIDC extends \yii\authclient\OpenIdConnect implements ApprovalBypass, Sync
 {
     public $cssIcon = 'fa fa-sign-in';
 
+    public $scope = 'openid profile email groups';
+
     /**
      * @inheritdoc
      */
